@@ -7,9 +7,42 @@ import SubmitProject from './Components/SubmitProject';
 import Products from './Components/Products';
 import Pitches from './Components/Pitches';
 import AboutShark from './Components/AboutShark';
+import { useEffect, useState } from 'react';
 
 
 function App() {
+
+  const [isWalletInstalled, setIsWalletInstalled] = useState(false)
+  const [account, setAccount] = useState(null)
+
+  useEffect( () =>{
+    if(window.ethereum){
+      setIsWalletInstalled(true);
+      connectWallet()
+    }
+  },[]);
+
+  const connectWallet = async() =>{
+    window.ethereum.request( {method: "eth_requestAccounts"})
+    .then((accounts) => {
+      setAccount(accounts[0]);
+    }).catch( (e) => {
+      alert(e)
+    })
+}
+
+if(account === null){
+  return (
+    <div className="App">
+      {
+        isWalletInstalled ? (<button onClick={connectWallet} >Connect</button>) : (
+          <p>Please Install Metamask Wallet first :) </p>
+        )
+      }
+    </div>
+  )
+}
+else {
   return (
     <>
       <HashRouter basename='/'>
@@ -46,6 +79,7 @@ function App() {
     </HashRouter>
     </>
   );
+}
 }
 
 export default App;
