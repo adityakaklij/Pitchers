@@ -5,6 +5,8 @@ import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import SubmitProject from './Components/SubmitProject';
 import Products from './Components/Products';
+import Pitches from './Components/Pitches';
+import AboutShark from './Components/AboutShark';
 
 
 function App() {
@@ -26,6 +28,14 @@ function App() {
 
           <Route exact path="/Products">
             <Products/>
+          </Route>
+
+          <Route exact path="/Pitches">
+            <Pitches/>
+          </Route>
+
+          <Route exact path="/AboutShark">
+            <AboutShark/>
           </Route>
 
 

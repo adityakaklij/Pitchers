@@ -44,6 +44,13 @@ export default function Navbar() {
                         <a className="nav-link" href="#/SubmitProject">SubmitProject</a>
                     </li>
 
+                    <li className="nav-item">
+                        <a className="nav-link" href="#/Pitches">Pitches</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="#/AboutShark">AboutShark</a>
+                    </li>
+
                 </ul>
 
                         
