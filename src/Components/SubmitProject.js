@@ -22,9 +22,10 @@ function SubmitProject() {
 
   const submitProjectFun = async() => {
     const contractInstance = new ethers.Contract(contractAddress, contractABI, signer);
-    await uploadDetailsToIPFS();
+    // await uploadDetailsToIPFS();
     
-    const submitProjectTx = await contractInstance.submitProject(metaDataURL, ProjectDate)
+    // const submitProjectTx = await contractInstance.submitProject(metaDataURL, ProjectDate)
+    const submitProjectTx = await contractInstance.submitProject(metaDataURL, 0)
     await submitProjectTx.wait()
     window.alert("Project submitted successfully!")
 
@@ -56,7 +57,9 @@ function SubmitProject() {
     let ipfsGateWayURL = `https://${urlArray[2]}.ipfs.dweb.link/${urlArray[3]}`;
     return ipfsGateWayURL;
   }
-  
+  function getDataTestFun() {
+    console.log("metaDataURL:- ",metaDataURL)
+  }
   // Helper functions
   const handleFileUpload= async(event) =>{
     event.preventDefault()
@@ -121,7 +124,7 @@ function SubmitProject() {
 
           <br /><br />
 
-          {/* <button onClick={getDataTestFun}>getDataTestFun</button> */}
+          <button onClick={getDataTestFun}>getDataTestFun</button>
     </div>
   )
 }
