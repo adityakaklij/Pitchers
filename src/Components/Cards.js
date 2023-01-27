@@ -1,9 +1,25 @@
+import { ethers } from 'ethers';
 import React, { useState } from 'react'
+import { contractABI, contractAddress } from '../Constants/Constants';
 
-function Cards({Name, Desc, Date, Img}) {
+function Cards({Name, Desc, Date, Img, projectId, projectVotes}) {
+
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+
 
     const voteProjectFun = async() => {
-      console.log("Btn 1 is clicked")
+      const contractInstance = new ethers.Contract(contractAddress, contractABI, signer);
+      // console.log("projectId", projectId)
+
+      try {
+        
+        const voteProjectTx = await contractInstance.voteProject(projectId)
+        await voteProjectTx.wait();
+        window.alert("Successfully Voted")
+      } catch (error) {
+          window.alert(error)
+      }
     }
   return (
     <>
@@ -13,7 +29,7 @@ function Cards({Name, Desc, Date, Img}) {
             <h5 className="card-title">{Name}</h5>
             <p className="card-text">{Desc}</p>
             <p>{Date}</p>
-            {/* <a href="#" className="btn btn-primary">Vote Project</a> */}
+            <p>{`Votes:- ${projectVotes}`}</p>
             <button onClick={voteProjectFun} className="btn btn-primary">Vote Project</button>
           </div>
         </div>

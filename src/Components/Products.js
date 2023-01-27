@@ -45,8 +45,8 @@ function Products() {
       var date = new Date(projectDesc["ProjectEndDate"] * 1000);
       console.log("date:- ", date.toLocaleDateString("default"))
       let testImgURL = (projectDesc["image"].toString()).split("//");
-      
-      dataArray.push([projectDesc["name"], projectDesc["description"], date.toLocaleDateString("default"),`https://ipfs.io/ipfs/${testImgURL[1]}` ])
+                                                                                                                                               // Project ID               Project Votes
+      dataArray.push([projectDesc["name"], projectDesc["description"], date.toLocaleDateString("default"),`https://ipfs.io/ipfs/${testImgURL[1]}`,projects[0].toString() , projects[3].toString()])
 
     }
 
@@ -54,17 +54,6 @@ function Products() {
     console.log("dataArray:- ", dataArray)
     console.log("setDetails", details)
     
-  }
-
-  const getValidURL = async(ipfsFromSC) => {
-    // let ipfsLink = 
-  }
-
-  const voteProjectFun = async(project_Id) => {
-    const contractInstance = new ethers.Contract(contractAddress, contractABI, signer);
-    const voteTx = await contractInstance.voteProject(project_Id);
-    await voteTx.wait();
-    window.alert("Projected Voted successfully!")
   }
 
   return (
@@ -76,7 +65,7 @@ function Products() {
         {details.map(details => (
 
 
-        <Cards Name = {details[0]} Desc = {details[1]} Date = {details[2]} Img = {details[3]} />
+        <Cards Name = {details[0]} Desc = {details[1]} Date = {details[2]} Img = {details[3]} projectId = {details[4]} projectVotes = {details[5]} />
         // <Cards Name = {details[0]} Desc = {details[1]} Date = {details[2]} Img = {"https://bafybeihngwk3dggkoqmxcjlpoqabmli6sofx6f2iv6hnd5y4s4hzn4xtje.ipfs.dweb.link/The-Web3-Project-Makes-A-Move-Into-The-Metaverse.jpg"} />
         ))}
         <hr/>
