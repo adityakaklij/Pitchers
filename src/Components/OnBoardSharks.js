@@ -6,6 +6,7 @@ import { contractABI, contractAddress } from '../Constants/Constants'
 
 function OnBoardSharks() {
 
+    const [isOwner, setIsOwner] = useState(false)
   const [uploadFile, setUploadFile] = useState()
   const [metaDataURL, setMetaDataURl] = useState()
 
@@ -53,14 +54,7 @@ function OnBoardSharks() {
     }
   }
 
-  const getIPFSGatewayURL = (ipfsURL)=>{
-    let urlArray = ipfsURL.split("/");
-    let ipfsGateWayURL = `https://${urlArray[2]}.ipfs.dweb.link/${urlArray[3]}`;
-    return ipfsGateWayURL;
-  }
-  function getDataTestFun() {
-    console.log("metaDataURL:- ",metaDataURL)
-  }
+
   // Helper functions
   const handleFileUpload= async(event) =>{
     event.preventDefault()
@@ -81,6 +75,24 @@ function OnBoardSharks() {
     setSharkAddress(e.target.value);
     
   }
+
+  if(!isOwner) {
+    const checkTheUser = async() => {
+        if (await signer.getAddress() === "0x88Ab2b62ccBD5170AA4D7266C0D5d7D002689fEf"){
+            // console.log(signer.getAddress)
+            setIsOwner(true)
+        }
+    }
+    return(
+        <>
+            <button className='btn btn-primary' onClick={checkTheUser}>Owner Only</button>
+        </>
+    )
+  }
+
+  else{
+
+  
 
   return (
     <div>
@@ -114,15 +126,16 @@ function OnBoardSharks() {
           </label>
 
           {/* <button onClick={uploadDetailsToIPFS}>Upload data</button> */}
+          <br /> <br />
           <button onClick={submitSharkFun}>Submit Shark</button>
 
           {/* <button onClick={createSharkFun}>createSharkFun</button> */}
 
           <br /><br />
 
-          <button onClick={getDataTestFun}>getDataTestFun</button>
     </div>
   )
+}
 }
 
 export default OnBoardSharks

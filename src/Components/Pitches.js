@@ -35,7 +35,7 @@ function Pitches() {
 
         <h1>Project Pitches</h1>
 
-        <button onClick={StartPitch}>Start Pitch</button>
+        <button className='btn btn-primary' onClick={StartPitch}>Start Pitch</button>
     </>
   )
 }

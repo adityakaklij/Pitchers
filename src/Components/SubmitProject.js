@@ -57,9 +57,9 @@ function SubmitProject() {
     let ipfsGateWayURL = `https://${urlArray[2]}.ipfs.dweb.link/${urlArray[3]}`;
     return ipfsGateWayURL;
   }
-  function getDataTestFun() {
-    console.log("metaDataURL:- ",metaDataURL)
-  }
+  // function getDataTestFun() {
+  //   console.log("metaDataURL:- ",metaDataURL)
+  // }
   // Helper functions
   const handleFileUpload= async(event) =>{
     event.preventDefault()
@@ -118,13 +118,14 @@ function SubmitProject() {
           </label>
 
           {/* <button onClick={uploadDetailsToIPFS}>Upload data</button> */}
-          <button onClick={submitProjectFun}>Submit project</button>
+          <br /><br />
+
+          <button className='btn btn-primary' onClick={submitProjectFun}>Submit project</button>
 
           {/* <button onClick={createProjectFun}>createProjectFun</button> */}
 
           <br /><br />
 
-          <button onClick={getDataTestFun}>getDataTestFun</button>
     </div>
   )
 }
