@@ -27,6 +27,7 @@ contract dSharkTank is Ownable {
     mapping (uint => currentProjects) public currentProjectMapping;
     mapping (address => bool) public isProjectRegisterByUser;
     mapping (address =>  mapping(uint => bool) ) public isVoted; // Mapping will keep track for the user that is voted or not
+    mapping (address => uint) public projectUserMap;
 
     mapping (address => uint) public sharkVotes;
     mapping (uint => sharks) public sharkMapping;
@@ -45,6 +46,7 @@ contract dSharkTank is Ownable {
         require(_date <= block.timestamp + 1209600, "Maximum allowed duration in 2 Weeks!");
         isProjectRegisterByUser[msg.sender] = true;
         currentProjectMapping[listedProjects + 1] =  currentProjects(listedProjects + 1, _projDetails, 0, 0, _date, msg.sender);
+        projectUserMap[msg.sender] = listedProjects + 1;
         listedProjects += 1;
     }
 
@@ -67,7 +69,7 @@ contract dSharkTank is Ownable {
 
     function isProjectEligibalForPitch (uint _projectId) public view returns(bool) {
 
-        require(currentProjectMapping[_projectId].date <=  1209600, "Allowed duration is ended!");
+        require(currentProjectMapping[_projectId].date + 1209600 <=  block.timestamp , "Allowed duration is ended!");
         require(currentProjectMapping[_projectId].publicVotes >= 10, "Atleast 10 votes are required!");
         return true;
 
