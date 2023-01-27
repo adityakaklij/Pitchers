@@ -42,19 +42,12 @@ function Products() {
       console.log("ProjectEndDate:- ", projectDesc["ProjectEndDate"])
       console.log("Image Url:- ", projectDesc["image"])
       
-      dataArray.push([projectDesc["name"], projectDesc["description"],projectDesc["ProjectEndDate"],projectDesc["image"] ])
-
-
+      var date = new Date(projectDesc["ProjectEndDate"] * 1000);
+      console.log("date:- ", date.toLocaleDateString("default"))
+      let testImgURL = (projectDesc["image"].toString()).split("//");
       
-      // Image Handling, not working.
-      // let testImgURL = (projectDesc["image"].toString()).split("/");
-      // let imgIPFSCID = testImgURL[2,testImgURL.length]
-      // // let imgURL = await fetch(`https://${imgIPFSCID}.ipfs.dweb.link/metadata.json`).then(response => response.json());
-      // let imgUrl = await (`https://${imgIPFSCID}.ipfs.dweb.link/metadata.json`);
-      // // setImgTest(imgUrl);
-      // setImgTest(`https://${imgIPFSCID}`);
-      // // console.log("testImgURL", imgIPFSCID) // printing CID hash of IPFS Image
-      // console.log("imgURL", imgTest)
+      dataArray.push([projectDesc["name"], projectDesc["description"], date.toLocaleDateString("default"),`https://ipfs.io/ipfs/${testImgURL[1]}` ])
+
     }
 
     setDetails(dataArray);
@@ -82,10 +75,11 @@ function Products() {
         
         {details.map(details => (
 
-        // <Cards Name = {"Adi"} Desc = {"This is the Description"} Date = {"somethin"} Img = {"Img_link"} />
-        // <Cards Name = {details[0]} Desc = {details[1]} Date = {details[2]} Img = {details[3]} />
-        <Cards Name = {details[0]} Desc = {details[1]} Date = {details[2]} Img = {"https://bafybeihngwk3dggkoqmxcjlpoqabmli6sofx6f2iv6hnd5y4s4hzn4xtje.ipfs.dweb.link/The-Web3-Project-Makes-A-Move-Into-The-Metaverse.jpg"} />
+
+        <Cards Name = {details[0]} Desc = {details[1]} Date = {details[2]} Img = {details[3]} />
+        // <Cards Name = {details[0]} Desc = {details[1]} Date = {details[2]} Img = {"https://bafybeihngwk3dggkoqmxcjlpoqabmli6sofx6f2iv6hnd5y4s4hzn4xtje.ipfs.dweb.link/The-Web3-Project-Makes-A-Move-Into-The-Metaverse.jpg"} />
         ))}
+        <hr/>
         
         {/* <br /><br /> */}
         <hr />

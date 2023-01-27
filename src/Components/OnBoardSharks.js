@@ -4,30 +4,30 @@ import { NFTStorage } from 'nft.storage'
 import { contractABI, contractAddress } from '../Constants/Constants'
 
 
-function SubmitProject() {
+function OnBoardSharks() {
 
   const [uploadFile, setUploadFile] = useState()
   const [metaDataURL, setMetaDataURl] = useState()
 
   // For taking inputs
-  const [ProjectName, setProjectName] = useState()
-  const [ProjectDesc, setProjectDesc] = useState()
-  const [ProjectDate, setProjectDate] = useState()
-  // const [ProjectPrizePool, setProjectPrizePool] = useState()
+  const [SharkName, setSharkName] = useState()
+  const [SharkDesc, setSharkDesc] = useState()
+  const [SharkAddress, setSharkAddress] = useState()
+  // const [SharkPrizePool, setSharkPrizePool] = useState()
 
   const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDFhNWNiQTlFYkQwRTcxZWE4NTA0Zjk5NGE0MkNBOUE3MWRlQTkwZTAiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY2MTU3NjQ1MTE4MCwibmFtZSI6Ikluc3RpdHV0ZSBNYW5hZ2VtZW50In0.s4o-sf9pRDr7oZq-zTDiedhNm49JW_AKGibtGOCg9VY';
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
 
-  const submitProjectFun = async() => {
+  const submitSharkFun = async() => {
     const contractInstance = new ethers.Contract(contractAddress, contractABI, signer);
     // await uploadDetailsToIPFS();
     
-    const submitProjectTx = await contractInstance.submitProject(metaDataURL, ProjectDate.toString())
-    // const submitProjectTx = await contractInstance.submitProject(metaDataURL, 0)
-    await submitProjectTx.wait()
-    window.alert("Project submitted successfully!")
+    // const submitSharkTx = await contractInstance.onboardShark(metaDataURL, SharkAddress)
+    const submitSharkTx = await contractInstance.onboardShark(metaDataURL, SharkAddress.toString())
+    await submitSharkTx.wait()
+    window.alert("Shark Addedd successfully!")
 
   }
   
@@ -36,10 +36,11 @@ function SubmitProject() {
 
     try {
         const metaData = await nftStorage.store({
-            name:ProjectName,
-            description: ProjectDesc,
-            ProjectEndDate: ProjectDate, // In unix
-            image: uploadFile // Banner image for the Project
+            name:SharkName,
+            description: SharkDesc,
+            address : SharkAddress,
+            // SharkEndDate: SharkDate, // In unix
+            image: uploadFile // Banner image for the Shark
 
         });
 
@@ -66,48 +67,43 @@ function SubmitProject() {
     setUploadFile(event.target.files[0])
   }
 
-  const handelProjectName = async (e) => {
-    setProjectName(e.target.value)
+  const handelSharkName = async (e) => {
+    setSharkName(e.target.value)
     console.log(e.target.value)
   }
 
-  const handelProjectDesc = async (e) => {
-    setProjectDesc(e.target.value);
+  const handelSharkDesc = async (e) => {
+    setSharkDesc(e.target.value);
     console.log(e.target.value)
   }
-  const handelProjectDate = async (e) => {
+  const handelSharkAddress = async (e) => {
     console.log(e.target.value)
-    const epochDate = Date.parse(e.target.value)// Converting normal date into epoch/ unix formate
-    setProjectDate(epochDate);
-    console.log(epochDate);
+    setSharkAddress(e.target.value);
     
   }
-  // const handelProjectPrizePool = async (e) => {
-  //   setProjectPrizePool(e.target.value);
-  //   console.log(e.target.value)
-  // }
+
   return (
     <div>
-        <h1>Submit projects</h1>
+        <h1>Submit Sharks</h1>
 
         <br /><br />
 
          <form action="">
 
-            <label htmlFor=""> Project Name:- 
-              <input type="text" onChange={handelProjectName} placeholder='Project Name' />
+            <label htmlFor=""> Shark Name:- 
+              <input type="text" onChange={handelSharkName} placeholder='Shark Name' />
             </label>
             <br /> <br />
 
-            <label htmlFor=""> Project Description:- 
-              <textarea type="text" onChange={handelProjectDesc} placeholder='Project Description' />
+            <label htmlFor=""> Shark Description:- 
+              <textarea type="text" onChange={handelSharkDesc} placeholder='Shark Description' />
             </label>
             <br /> <br />
 
             <br /> <br />
 
-            <label htmlFor=""> End date :- 
-              <input type="date" onChange={handelProjectDate} placeholder='End Date' />
+            <label htmlFor=""> Shark Address :- 
+              <input type="text" onChange={handelSharkAddress} placeholder='Enter Shark Adderss' />
             </label>
             <br /> <br />
 
@@ -118,9 +114,9 @@ function SubmitProject() {
           </label>
 
           {/* <button onClick={uploadDetailsToIPFS}>Upload data</button> */}
-          <button onClick={submitProjectFun}>Submit project</button>
+          <button onClick={submitSharkFun}>Submit Shark</button>
 
-          {/* <button onClick={createProjectFun}>createProjectFun</button> */}
+          {/* <button onClick={createSharkFun}>createSharkFun</button> */}
 
           <br /><br />
 
@@ -129,4 +125,4 @@ function SubmitProject() {
   )
 }
 
-export default SubmitProject
+export default OnBoardSharks

@@ -51,6 +51,10 @@ export default function Navbar() {
                         <a className="nav-link" href="#/AboutShark">AboutShark</a>
                     </li>
 
+                    <li className="nav-item">
+                        <a className="nav-link" href="#/OnBoardSharks">OnBoardSharks</a>
+                    </li>
+
                 </ul>
 
                         
