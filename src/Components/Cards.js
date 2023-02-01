@@ -25,7 +25,10 @@ function Cards({ Name, Desc, Date, Img, projectId, projectVotes }) {
       window.alert("Successfully Voted");
     } catch (error) {
       window.alert(error);
+    }
+  };
 
+  // const chatWithOwner = async() => {
 
   //   return (
   //     <>
@@ -63,34 +66,30 @@ function Cards({ Name, Desc, Date, Img, projectId, projectVotes }) {
       </div>
 
     
-                        <Chat
-                        // account={account} //user address 
-                        account= "0x88Ab2b62ccBD5170AA4D7266C0D5d7D002689fEf" //user address 
-                        supportAddress="0xc221979949e0ACc4E1E715FbB232284f7eE412d4" //support address
-                        // apiKey="jVPMCRom1B.iDRMswdehJG7NpHDiECIHwYMMv6k2KzkPJscFIDyW8TtSnk4blYnGa8DIkfuacU0"
-                        apiKey="vzOQa8Hda3.lD6Yvrij1T4qHrE07Mp7XcE3mRWu8Yl6WAmOzLSfI63xWuGSoNkXsHeBDVvG63Hs"
-                            env="staging" />
-    
-            
-            
-        </>
-      )
-
-    }
-
-
-  return (
-    <>
-        <div className="card" style={{width: "18rem"}}>
-          <img className="card-img-top" src={Img} alt="Card image cap"/>
-          <div className="card-body">
-            <h5 className="card-title">{Name}</h5>
-            <p className="card-text">{Desc}</p>
-            <p>{Date}</p>
-            <p>{`Votes:- ${projectVotes}`}</p>
-            <button onClick={voteProjectFun} className="btn btn-primary">Vote Project</button>
-            <button onClick={chatWithOwner} className="btn btn-primary">Chat</button>
-          </div>
+      <Chat
+        // account={account} //user address
+        account="0x88Ab2b62ccBD5170AA4D7266C0D5d7D002689fEf" //user address
+        supportAddress="0xc221979949e0ACc4E1E715FbB232284f7eE412d4" //support address
+        // apiKey="jVPMCRom1B.iDRMswdehJG7NpHDiECIHwYMMv6k2KzkPJscFIDyW8TtSnk4blYnGa8DIkfuacU0"
+        apiKey="vzOQa8Hda3.lD6Yvrij1T4qHrE07Mp7XcE3mRWu8Yl6WAmOzLSfI63xWuGSoNkXsHeBDVvG63Hs"
+        env="staging"
+      />
+   
+    </>
+  )):(<>
+           <div className="card" style={{ width: "18rem" }}>
+        <img className="card-img-top" src={Img} alt="Card image cap" />
+        <div className="card-body">
+          <h5 className="card-title">{Name}</h5>
+          <p className="card-text">{Desc}</p>
+          <p>{Date}</p>
+          <p>{`Votes:- ${projectVotes}`}</p>
+          <button onClick={voteProjectFun} className="btn btn-primary">
+            Vote Project
+          </button>
+          <button onClick={()=>setChatBtn(true)} className="btn btn-primary">
+            Chat
+          </button>
         </div>
       </div>
  
