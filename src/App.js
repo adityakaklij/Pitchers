@@ -9,6 +9,7 @@ import Pitches from './Components/Pitches';
 import AboutShark from './Components/AboutShark';
 import { useEffect, useState } from 'react';
 import OnBoardSharks from './Components/OnBoardSharks';
+import PushChatTest from './Components/PushChatTest';
 
 
 function App() {
@@ -74,6 +75,10 @@ else {
 
           <Route exact path="/OnBoardSharks">
             <OnBoardSharks/>
+          </Route>
+
+          <Route exact path="/PushChatTest">
+            <PushChatTest/>
           </Route>
 
 

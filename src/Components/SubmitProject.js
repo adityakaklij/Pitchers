@@ -22,7 +22,7 @@ function SubmitProject() {
 
   const submitProjectFun = async() => {
     const contractInstance = new ethers.Contract(contractAddress, contractABI, signer);
-    // await uploadDetailsToIPFS();
+    await uploadDetailsToIPFS();
     
     const submitProjectTx = await contractInstance.submitProject(metaDataURL, ProjectDate.toString())
     // const submitProjectTx = await contractInstance.submitProject(metaDataURL, 0)

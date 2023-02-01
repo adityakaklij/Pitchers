@@ -55,6 +55,10 @@ export default function Navbar() {
                         <a className="nav-link" href="#/OnBoardSharks">OnBoardSharks</a>
                     </li>
 
+                    <li className="nav-item">
+                        <a className="nav-link" href="#/PushChatTest">PushChatTest</a>
+                    </li>
+
                 </ul>
 
                         
