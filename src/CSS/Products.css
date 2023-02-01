@@ -1,0 +1,6 @@
+.alignCards {
+    display: grid;
+    /* grid-auto-columns: auto auto; */
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+}
