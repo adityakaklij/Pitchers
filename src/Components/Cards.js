@@ -6,7 +6,7 @@ import { Chat } from "@pushprotocol/uiweb";
 
 
 
-function Cards({ Name, Desc, Date, Img, projectId, projectVotes }) {
+function Cards({ Name, Desc, Date, Img, projectId, projectVotes, _user, _userAddress }) {
   const [chatBtn, setChatBtn] = useState(false);
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
@@ -28,29 +28,10 @@ function Cards({ Name, Desc, Date, Img, projectId, projectVotes }) {
     }
   };
 
-  // const chatWithOwner = async() => {
-
-  //   return (
-  //     <>
-  //         <h2>Push Chat test</h2>
-  //                     <Chat
-  //                     // account={account} //user address
-  //                     account= "0x88Ab2b62ccBD5170AA4D7266C0D5d7D002689fEf" //user address
-  //                     supportAddress="0xc221979949e0ACc4E1E715FbB232284f7eE412d4" //support address
-  //                     // apiKey="jVPMCRom1B.iDRMswdehJG7NpHDiECIHwYMMv6k2KzkPJscFIDyW8TtSnk4blYnGa8DIkfuacU0"
-  //                     apiKey="vzOQa8Hda3.lD6Yvrij1T4qHrE07Mp7XcE3mRWu8Yl6WAmOzLSfI63xWuGSoNkXsHeBDVvG63Hs"
-  //                         env="staging"
-  //         />
-
-  //     </>
-  //   )
-
-  // }
- 
   return chatBtn?((
     <>
-      <div className="card" style={{ width: "18rem" }}>
-        <img className="card-img-top" src={Img} alt="Card image cap" />
+      <div className="card" style={{ width: "20rem" }}>
+        <img className="card-img-top" src={Img} style={{ width: "20rem" }} alt="Card image cap" />
         <div className="card-body">
           <h5 className="card-title">{Name}</h5>
           <p className="card-text">{Desc}</p>
@@ -62,15 +43,15 @@ function Cards({ Name, Desc, Date, Img, projectId, projectVotes }) {
           <button  className="btn btn-primary">
             Chat
           </button>
+
         </div>
       </div>
 
     
       <Chat
         // account={account} //user address
-        account="0x88Ab2b62ccBD5170AA4D7266C0D5d7D002689fEf" //user address
-        supportAddress="0xc221979949e0ACc4E1E715FbB232284f7eE412d4" //support address
-        // apiKey="jVPMCRom1B.iDRMswdehJG7NpHDiECIHwYMMv6k2KzkPJscFIDyW8TtSnk4blYnGa8DIkfuacU0"
+        account= {_userAddress} //user address
+        supportAddress={_user} //support address
         apiKey="vzOQa8Hda3.lD6Yvrij1T4qHrE07Mp7XcE3mRWu8Yl6WAmOzLSfI63xWuGSoNkXsHeBDVvG63Hs"
         env="staging"
       />

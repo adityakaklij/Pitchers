@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ethers } from 'ethers'
 import { contractABI, contractAddress } from '../Constants/Constants'
 import Cards from './Cards'
@@ -13,6 +13,10 @@ function AboutShark() {
     const [details, setDetails] = useState([]);
     // Will containg all the available Sharks, fetched from SC
     let dataArray = [];
+
+    useEffect(() => {
+      getSharkDetails()
+    },[])
 
     const getSharkDetails = async() => {
         const contractInstance = new ethers.Contract(contractAddress, contractABI, provider);
@@ -58,7 +62,7 @@ function AboutShark() {
         {details.map(details => (
             <SharkCards Name = {details[0]} Desc = {details[1]}  Img = {details[2]} Address = {details[3]} />
         ))}
-        <button onClick={getSharkDetails}>getSharkDetails</button>
+        {/* <button onClick={getSharkDetails}>getSharkDetails</button> */}
     </div>
   )
 }
