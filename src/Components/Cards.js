@@ -25,10 +25,7 @@ function Cards({ Name, Desc, Date, Img, projectId, projectVotes }) {
       window.alert("Successfully Voted");
     } catch (error) {
       window.alert(error);
-    }
-  };
 
-  // const chatWithOwner = async() => {
 
   //   return (
   //     <>
