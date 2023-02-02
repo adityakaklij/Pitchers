@@ -110,9 +110,7 @@ button {
   color: #fff;
 }
 
-input[type="file"] {
-    display: none;
-}
+
 
 .custom-file-upload {
     display: block;
