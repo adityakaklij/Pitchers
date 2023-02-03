@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+.navbar{
+    background-image: linear-gradient(80deg, #050582, #930893);
+    border-bottom: 5px solid white;
+}
+
+.nav-link{
+    color: white !important;
+   
+}
+
+.logo{
+    color: white !important;
+    font-family: 'Comfortaa', cursive;
+    font-size:1.5rem;
+}

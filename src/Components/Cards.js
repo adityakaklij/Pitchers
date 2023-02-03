@@ -47,15 +47,15 @@ function Cards({ Name, Desc, Date, Img, projectId, projectVotes, _user, _userAdd
         </div>
       </div>
 
-    
+    <div className="chatWindow">
       <Chat
         // account={account} //user address
         account= {_userAddress} //user address
         supportAddress={_user} //support address
         apiKey="vzOQa8Hda3.lD6Yvrij1T4qHrE07Mp7XcE3mRWu8Yl6WAmOzLSfI63xWuGSoNkXsHeBDVvG63Hs"
-        env="staging"
+        env="staging" 
       />
-   
+   </div>
     </>
   )):(<>
            <div className="card" style={{ width: "18rem" }}>
