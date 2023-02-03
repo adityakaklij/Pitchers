@@ -19,6 +19,7 @@ function AboutShark() {
     },[])
 
     const getSharkDetails = async() => {
+      console.log("Inside the fun")
         const contractInstance = new ethers.Contract(contractAddress, contractABI, provider);
         const totalSharks = await contractInstance.totalSharks();
 
@@ -62,7 +63,7 @@ function AboutShark() {
         {details.map(details => (
             <SharkCards Name = {details[0]} Desc = {details[1]}  Img = {details[2]} Address = {details[3]} />
         ))}
-        {/* <button onClick={getSharkDetails}>getSharkDetails</button> */}
+        <button onClick={getSharkDetails}>getSharkDetails</button>
     </div>
   )
 }
