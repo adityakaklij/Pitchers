@@ -6,13 +6,13 @@ import "../CSS/SubmitProject.css";
 import '../App.css'
 
 function SubmitProject() {
-  const [uploadFile, setUploadFile] = useState();
-  const [metaDataURL, setMetaDataURl] = useState();
+  var uploadFile;
+  var MetaDataURL;
 
   // For taking inputs
-  const [ProjectName, setProjectName] = useState();
-  const [ProjectDesc, setProjectDesc] = useState();
-  const [ProjectDate, setProjectDate] = useState();
+  var ProjectName; 
+  var ProjectDesc;
+  var ProjectDate;
   // const [ProjectPrizePool, setProjectPrizePool] = useState()
 
   const projectNameRef = useRef(null);
@@ -28,10 +28,13 @@ function SubmitProject() {
 
   const submitProjectFun = async() => {
     const contractInstance = new ethers.Contract(contractAddress, contractABI, signer);
-    // await uploadDetailsToIPFS();
     
-    const submitProjectTx = await contractInstance.submitProject(metaDataURL, ProjectDate.toString())
-    // const submitProjectTx = await contractInstance.submitProject(metaDataURL, 0)
+      await uploadDetailsToIPFS();
+    
+    // const submitProjectTx = await contractInstance.submitProject(metaDataURL, "123")
+    console.log(MetaDataURL);
+    const submitProjectTx = await contractInstance.submitProject(MetaDataURL, ProjectDate.to )
+    
     await submitProjectTx.wait();
     window.alert("Project submitted successfully!");
   };
@@ -49,8 +52,9 @@ function SubmitProject() {
       });
 
       // setMetaDataURl(getIPFSGatewayURL(metaData.url));
-      setMetaDataURl(metaData.url);
-      console.log("metadata:- ", metaData);
+      MetaDataURL = metaData.url;
+      console.log(metaData.url);
+      console.log(metaData);
       return metaData;
     } catch (error) {
       alert(error);
@@ -88,12 +92,13 @@ function SubmitProject() {
   // };
 
   const handleSubmit = async() => {
-    setProjectName(projectNameRef.current.value);
-    setProjectDesc(descriptionRef.current.value);
-    setUploadFile(displayImageRef.current.files[0]);
+    ProjectName =  projectNameRef.current.value;
+    ProjectDesc = descriptionRef.current.value;
+    uploadFile = displayImageRef.current.files[0];
+    console.log(projectEndDateRef.current.value);
     const epochDate = Date.parse(projectEndDateRef.current.value);
-    setProjectDate(epochDate);
-
+    ProjectDate = parseInt(epochDate);
+    console.log(ProjectDate);
     await submitProjectFun();
   }
   // const handelProjectPrizePool = async (e) => {
