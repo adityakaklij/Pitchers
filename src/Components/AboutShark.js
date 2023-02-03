@@ -4,6 +4,7 @@ import { contractABI, contractAddress } from '../Constants/Constants'
 import Cards from './Cards'
 import SharkCards from './SharkCards';
 import '../App.css'
+import "../CSS/Products.css"
 
 function AboutShark() {
 
@@ -58,14 +59,17 @@ function AboutShark() {
 
 
   return (
-    <div>
+    <>
+      <div className="my-5 alignCards" >
+
         
-        <h1>About Sharks</h1>
+        {/* <h1>About Sharks</h1> */}
         {details.map(details => (
-            <SharkCards Name = {details[0]} Desc = {details[1]}  Img = {details[2]} Address = {details[3]} />
-        ))}
-        <button onClick={getSharkDetails} className="btn btn-primary">getSharkDetails</button>
-    </div>
+          <SharkCards Name = {details[0]} Desc = {details[1]}  Img = {details[2]} Address = {details[3]} />
+          ))}
+          </div>
+        {/* <button onClick={getSharkDetails} className="btn btn-primary">getSharkDetails</button> */}
+    </>
   )
 }
 

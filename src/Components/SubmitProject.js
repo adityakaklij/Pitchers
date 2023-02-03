@@ -6,13 +6,13 @@ import "../CSS/SubmitProject.css";
 import '../App.css'
 
 function SubmitProject() {
-  const [uploadFile, setUploadFile] = useState();
+  var uploadFile;
   const [metaDataURL, setMetaDataURl] = useState();
 
   // For taking inputs
-  const [ProjectName, setProjectName] = useState();
-  const [ProjectDesc, setProjectDesc] = useState();
-  const [ProjectDate, setProjectDate] = useState();
+  var ProjectName; 
+  var ProjectDesc;
+  var ProjectDate;
   // const [ProjectPrizePool, setProjectPrizePool] = useState()
 
   const projectNameRef = useRef(null);
@@ -27,11 +27,17 @@ function SubmitProject() {
   const signer = provider.getSigner();
 
   const submitProjectFun = async() => {
+
     const contractInstance = new ethers.Contract(contractAddress, contractABI, signer);
-    // await uploadDetailsToIPFS();
     
-    const submitProjectTx = await contractInstance.submitProject(metaDataURL, ProjectDate.toString())
-    // const submitProjectTx = await contractInstance.submitProject(metaDataURL, 0)
+     await uploadDetailsToIPFS();
+    // const submitProjectTx = await contractInstance.submitProject(metaDataURL, String(ProjectDate))
+    const submitProjectTx = await contractInstance.submitProject(metaDataURL, "1676529381")
+    // const submitProjectTx = await contractInstance.submitProject("ipfs://bafyreid6znnfuubpgma6kk4t2pke4ajr435kw2o45inrd3o2yzd4zfpumi/metadata.json", '16754170445464561')
+    // const submitProjectTx = await contractInstance.submitProject(metaDataURL, "1486612932" )
+    
+    // const submitProjectTx = await contractInstance.submitProject("metaDataURL", 0)
+    console.log("here");
     await submitProjectTx.wait();
     window.alert("Project submitted successfully!");
   };
@@ -88,11 +94,11 @@ function SubmitProject() {
   // };
 
   const handleSubmit = async() => {
-    setProjectName(projectNameRef.current.value);
-    setProjectDesc(descriptionRef.current.value);
-    setUploadFile(displayImageRef.current.files[0]);
+    ProjectName =  projectNameRef.current.value;
+    ProjectDesc = descriptionRef.current.value;
+    uploadFile = displayImageRef.current.files[0];
     const epochDate = Date.parse(projectEndDateRef.current.value);
-    setProjectDate(epochDate);
+    ProjectDate = epochDate;
 
     await submitProjectFun();
   }
@@ -167,6 +173,9 @@ function SubmitProject() {
           <button type="submit" href="/" onClick={handleSubmit}>
             Submit
           </button>
+          {/* <button  onClick={submitProjectFun}>
+          submitProjectFun
+          </button> */}
         </div>
       </form>
 

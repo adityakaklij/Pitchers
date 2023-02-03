@@ -1,4 +1,5 @@
-export const contractAddress = "0xBE613b8B7a931CA49Ce044FC52b1Be291492C843"; // contract Address on FileCoin HyperSpace
+// export const contractAddress = "0xBE613b8B7a931CA49Ce044FC52b1Be291492C843"; // Old Address// contract Address on FileCoin HyperSpace
+export const contractAddress = "0x3CC1eD3cFb21e4E41F15F6f56D68823c0ED5cab4"; // contract Address on FileCoin HyperSpace
 export const contractABI = [
 	{
 		"anonymous": false,

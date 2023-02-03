@@ -24,10 +24,10 @@ function OnBoardSharks() {
 
   const submitSharkFun = async() => {
     const contractInstance = new ethers.Contract(contractAddress, contractABI, signer);
-    // await uploadDetailsToIPFS();
+    await uploadDetailsToIPFS();
     
-    // const submitSharkTx = await contractInstance.onboardShark(metaDataURL, SharkAddress)
-    const submitSharkTx = await contractInstance.onboardShark(metaDataURL, SharkAddress.toString())
+    const submitSharkTx = await contractInstance.onboardShark(metaDataURL, SharkAddress)
+    // const submitSharkTx = await contractInstance.onboardShark(metaDataURL, SharkAddress.toString())
     await submitSharkTx.wait()
     window.alert("Shark Addedd successfully!")
 

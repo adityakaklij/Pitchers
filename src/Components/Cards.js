@@ -59,7 +59,7 @@ function Cards({ Name, Desc, Date, Img, projectId, projectVotes, _user, _userAdd
    </div>
     </>
   )):(<>
-           <div className="card" style={{ width: "18rem" }}>
+           <div className="card" style={{ width: "20rem" }}>
         <img className="card-img-top" src={Img} alt="Card image cap" />
         <div className="card-body">
           <h5 className="card-title">{Name}</h5>
