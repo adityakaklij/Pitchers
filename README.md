@@ -14,11 +14,12 @@ A decentralised secure, transparent, and democratic pitching platform for entrep
 2. Let's vote for the best
 3. Pitch your business to industry experts(Sharks)
 4. Chat with project builders
-
+<hr>
 
 <br><br><br>
-<hr>
+
 <img width="1200" alt="image" src="https://user-images.githubusercontent.com/90379168/216605357-395643cd-89ea-400f-bb0d-c3ccae4c21f1.png">
+<hr>
 <br>
 <br>
 
@@ -30,10 +31,8 @@ A decentralised secure, transparent, and democratic pitching platform for entrep
 <img width="1200" alt="image" src="https://user-images.githubusercontent.com/90379168/216605232-21ec621d-e1c1-4806-96c2-9ebce516a3f1.png">
 <br>
 
+<hr>
 <br>
 <img width="1200" alt="image" src="https://user-images.githubusercontent.com/90379168/216605308-94dd52b3-d2d4-4654-89e2-0c17bb5d11a9.png">
 
 
-
-
-<hr>
