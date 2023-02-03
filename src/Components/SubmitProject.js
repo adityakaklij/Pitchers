@@ -3,6 +3,7 @@ import React, { useState,useRef } from "react";
 import { NFTStorage } from "nft.storage";
 import { contractABI, contractAddress } from "../Constants/Constants";
 import "../CSS/SubmitProject.css";
+import '../App.css'
 
 function SubmitProject() {
   const [uploadFile, setUploadFile] = useState();

@@ -2,7 +2,8 @@ import { ethers } from 'ethers'
 import React, { useState } from 'react'
 import { NFTStorage } from 'nft.storage'
 import { contractABI, contractAddress } from '../Constants/Constants'
-import "../CSS/OnBoardShark.css"
+import '../App.css'
+
 
 function OnBoardSharks() {
 

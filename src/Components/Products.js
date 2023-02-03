@@ -1,10 +1,12 @@
 import { ethers } from "ethers";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { contractABI, contractAddress } from "../Constants/Constants";
 import Cards from "./Cards";
 import '../CSS/Products.css'
+import '../App.css'
 
 function Products() {
+  const [btnVisible, setBtnVisible] = useState(true);
   const [imgTest, setImgTest] = useState(
     "https://bafybeifwmvex2sqtjej66g7nsgaoiqjeixeaklkahfqeun354dnhbibgea/testProject.jpeg"
   );
@@ -17,14 +19,8 @@ function Products() {
   // Will containg all the available products, fetched from SC
   let dataArray = [];
 
-  useEffect(() => {
-    getListedProjects()
-  },[])
-  
-
   const getListedProjects = async () => {
-    const connectedUserAddress = await signer.getAddress()
-    setUserAddress(connectedUserAddress)
+    setBtnVisible(false);
     const contractInstance = new ethers.Contract(
       contractAddress,
       contractABI,
@@ -66,7 +62,6 @@ function Products() {
         `https://ipfs.io/ipfs/${testImgURL[1]}`,
         projects[0].toString(),
         projects[3].toString(),
-        projects[5].toString(),
       ]);
     }
 
@@ -75,10 +70,16 @@ function Products() {
     console.log("setDetails", details);
   };
 
-  return (
+  return btnVisible?(
     <div>
-      {/* <h1>Listed projects</h1> */}
-      <br /><br /><br />
+ 
+      
+      <button onClick={getListedProjects} className="btn btn-primary">Get Listed Projects</button>
+    </div>
+  ):(<>
+  <div className="alignCards">
+ 
+ 
       <div className="alignCards">
       {details.map((details) => (
         <Cards
@@ -88,15 +89,10 @@ function Products() {
           Img={details[3]}
           projectId={details[4]}
           projectVotes={details[5]}
-          _user = {details[6]}
-          _useAddress = {useAddress}
         />
         // <Cards Name = {details[0]} Desc = {details[1]} Date = {details[2]} Img = {"https://bafybeihngwk3dggkoqmxcjlpoqabmli6sofx6f2iv6hnd5y4s4hzn4xtje.ipfs.dweb.link/The-Web3-Project-Makes-A-Move-Into-The-Metaverse.jpg"} />
       ))}
- </div>
-      {/* <button onClick={getListedProjects}>Get Listed Projects</button> */}
-    </div>
-  );
+ </div></>);
 }
 
 export default Products;
