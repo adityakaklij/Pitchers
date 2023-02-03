@@ -38,10 +38,10 @@ function Cards({ Name, Desc, Date, Img, projectId, projectVotes, _user, _userAdd
           <p className="card-text">{Desc}</p>
           <p>{Date}</p>
           <p>{`Votes:- ${projectVotes}`}</p>
-          <button onClick={voteProjectFun} className="btn btn-primary">
+          <button onClick={voteProjectFun} className=" btn-primary">
             Vote Project
           </button>
-          <button  className="btn btn-primary">
+          <button  className="btn-primary">
             Chat
           </button>
 
@@ -66,10 +66,10 @@ function Cards({ Name, Desc, Date, Img, projectId, projectVotes, _user, _userAdd
           <p className="card-text">{Desc}</p>
           <p>{Date}</p>
           <p>{`Votes:- ${projectVotes}`}</p>
-          <button onClick={voteProjectFun} className="btn btn-primary">
+          <button onClick={voteProjectFun} className=" btn-primary">
             Vote Project
           </button>
-          <button onClick={()=>setChatBtn(true)} className="btn btn-primary">
+          <button onClick={()=>setChatBtn(true)} className=" btn-primary">
             Chat
           </button>
         </div>
