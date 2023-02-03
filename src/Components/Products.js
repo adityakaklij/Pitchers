@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { contractABI, contractAddress } from "../Constants/Constants";
 import Cards from "./Cards";
 import '../CSS/Products.css'
+import '../App.css'
 
 function Products() {
   const [imgTest, setImgTest] = useState(
@@ -68,7 +69,6 @@ function Products() {
 
   return (
     <div>
-      <h1>Listed projects</h1>
       <div className="alignCards">
       {details.map((details) => (
         <Cards
@@ -82,7 +82,7 @@ function Products() {
         // <Cards Name = {details[0]} Desc = {details[1]} Date = {details[2]} Img = {"https://bafybeihngwk3dggkoqmxcjlpoqabmli6sofx6f2iv6hnd5y4s4hzn4xtje.ipfs.dweb.link/The-Web3-Project-Makes-A-Move-Into-The-Metaverse.jpg"} />
       ))}
  </div>
-      <button onClick={getListedProjects}>Get Listed Projects</button>
+      <button onClick={getListedProjects} className="btn btn-primary">Get Listed Projects</button>
     </div>
   );
 }

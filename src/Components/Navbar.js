@@ -2,6 +2,7 @@ import React, { useState , useEffect} from 'react'
 import { ethers } from 'ethers';
 import "../App.css"
 import '../CSS/Navbar.css'
+import '../App.css'
 
 
 export default function Navbar() {

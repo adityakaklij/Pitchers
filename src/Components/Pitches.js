@@ -7,6 +7,7 @@ import { ethers } from "ethers";
 import { useHuddleStore } from "@huddle01/huddle01-client/store";
 import { contractABI, contractAddress } from "../Constants/Constants";
 import "../CSS/Pitches.css";
+import '../App.css'
 
 function Pitches() {
   const stream = useHuddleStore((state) => state.stream);
@@ -70,7 +71,7 @@ function Pitches() {
         {/* <button onClick={startMeet}>Start</button> */}
         <h1>Project Pitches</h1>
         <button className="btn btn-primary" onClick={startMeet}>
-          {" "}
+           
           Pitch
         </button>
       </HuddleClientProvider>

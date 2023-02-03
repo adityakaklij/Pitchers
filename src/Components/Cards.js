@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { contractABI, contractAddress } from "../Constants/Constants";
 import * as PushAPI from "@pushprotocol/restapi";
 import { Chat } from "@pushprotocol/uiweb";
+import '../App.css'
 
 
 

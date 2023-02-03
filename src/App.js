@@ -38,7 +38,7 @@ if(account === null){
   return (
     <div className="App">
       {
-        isWalletInstalled ? (<button onClick={connectWallet} >Connect</button>) : (
+        isWalletInstalled ? (<button onClick={connectWallet} className="btn btn-primary">Connect</button>) : (
           <p>Please Install Metamask Wallet first :) </p>
         )
       }
