@@ -77,7 +77,8 @@ function Products() {
 
   return (
     <div>
-      <h1>Listed projects</h1>
+      {/* <h1>Listed projects</h1> */}
+      <br /><br /><br />
       <div className="alignCards">
       {details.map((details) => (
         <Cards
