@@ -44,9 +44,15 @@ function AboutShark() {
             console.log("Image Url:- ", projectDesc["image"])
             
             
-            let testImgURL = (projectDesc["image"].toString()).split("//");
+            let testImgURL = (projectDesc["image"].toString()).split(":");
+            let testImgURL2 = (testImgURL.toString()).split("/");
+            // console.log("testImgURL2",testImgURL2)
+            let testImgURL3 = (testImgURL2[3]).trimStart()
+            // console.log("testImgURL3",testImgURL3)
+
+            // console.log("testImgURL",testImgURL)
             let sharkAddressIs = `${(projects[2].toString()).slice(0,3)}...${(projects[2].toString()).slice(-3)}`
-            dataArray.push([projectDesc["name"], projectDesc["description"],`https://ipfs.io/ipfs/${testImgURL[1]}`,sharkAddressIs])
+            dataArray.push([projectDesc["name"], projectDesc["description"],`https://ipfs.io/ipfs/${testImgURL2[2]}/${testImgURL3}`,sharkAddressIs])
       
           }
       
