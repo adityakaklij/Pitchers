@@ -37,7 +37,7 @@ export default function Navbar() {
                     </li>
 
                     <li className="nav-item">
-                        <a className="nav-link" href="#/Products">Products</a>
+                        <a className="nav-link" href="#/Products">Projects</a>
                     </li>
 
                     <li className="nav-item">
@@ -55,9 +55,9 @@ export default function Navbar() {
                         <a className="nav-link" href="#/OnBoardSharks">OnBoardSharks</a>
                     </li>
 
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <a className="nav-link" href="#/PushChatTest">PushChatTest</a>
-                    </li>
+                    </li> */}
 
                 </ul>
 
