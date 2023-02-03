@@ -23,6 +23,9 @@ A decentralised secure, transparent, and democratic pitching platform for entrep
 <br>
 <br>
 
+### Vote your favourite project!
+### Chat with project builder with Push Chat
+<br>
 <img width="1200" alt="image" src="https://user-images.githubusercontent.com/90379168/216605106-1acf8271-b6ee-4212-adfe-993176b829d3.png">
 
 <hr>
@@ -33,6 +36,17 @@ A decentralised secure, transparent, and democratic pitching platform for entrep
 
 <hr>
 <br>
+
+## List your project on Pitchers
+<br>
 <img width="1200" alt="image" src="https://user-images.githubusercontent.com/90379168/216605308-94dd52b3-d2d4-4654-89e2-0c17bb5d11a9.png">
+<hr>
+<br>
+
+## Live Pitch with Huddle01
+<br>
+![huddle](https://user-images.githubusercontent.com/90379168/216668665-9720cf26-8486-4892-aec0-ab71a8f94185.png)
+
+
 
 
