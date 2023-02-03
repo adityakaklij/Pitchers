@@ -1,6 +1,7 @@
 import React, { useState , useEffect} from 'react'
 import { ethers } from 'ethers';
 import "../App.css"
+import '../CSS/Navbar.css'
 
 
 export default function Navbar() {
@@ -26,6 +27,7 @@ export default function Navbar() {
     <div>
 
         <nav className="navbar navbar-expand-lg  ">
+            <span className="logo">Pitcher</span>
             <div className="container-fluid">
 
 
