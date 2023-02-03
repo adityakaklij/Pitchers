@@ -148,19 +148,19 @@ function SubmitProject() {
         */}
 
       <form className="decor">
-        <div class="form-left-decoration"></div>
-        <div class="form-right-decoration"></div>
-        <div class="circle"></div>
-        <div class="form-inner">
+        <div className="form-left-decoration"></div>
+        <div className="form-right-decoration"></div>
+        <div className="circle"></div>
+        <div className="form-inner">
           <h1>Submit you project</h1>
           <input type="text" placeholder="Project Name" ref={projectNameRef}/>
           <textarea placeholder="Project Description" rows="5" ref = {descriptionRef}></textarea>
         
-          <label class="custom-file-upload">
+          <label className="custom-file-upload">
             <input type="file" ref = {displayImageRef}/>
             Click to add Display Image
           </label>
-          <label class="custom-date">
+          <label className="custom-date">
             <input type="date" ref = {projectEndDateRef} />
              Select project end date
           </label>

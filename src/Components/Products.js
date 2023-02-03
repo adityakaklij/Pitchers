@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { contractABI, contractAddress } from "../Constants/Constants";
 import Cards from "./Cards";
 import '../CSS/Products.css'
@@ -14,10 +14,18 @@ function Products() {
   const signer = provider.getSigner();
 
   const [details, setDetails] = useState([]);
+  const [useAddress, setUserAddress] = useState();
   // Will containg all the available products, fetched from SC
   let dataArray = [];
 
+  useEffect(() => {
+    getListedProjects()
+  },[])
+  
+
   const getListedProjects = async () => {
+    const connectedUserAddress = await signer.getAddress()
+    setUserAddress(connectedUserAddress)
     const contractInstance = new ethers.Contract(
       contractAddress,
       contractABI,
@@ -59,6 +67,7 @@ function Products() {
         `https://ipfs.io/ipfs/${testImgURL[1]}`,
         projects[0].toString(),
         projects[3].toString(),
+        projects[5].toString(),
       ]);
     }
 
@@ -78,11 +87,13 @@ function Products() {
           Img={details[3]}
           projectId={details[4]}
           projectVotes={details[5]}
+          _user = {details[6]}
+          _useAddress = {useAddress}
         />
         // <Cards Name = {details[0]} Desc = {details[1]} Date = {details[2]} Img = {"https://bafybeihngwk3dggkoqmxcjlpoqabmli6sofx6f2iv6hnd5y4s4hzn4xtje.ipfs.dweb.link/The-Web3-Project-Makes-A-Move-Into-The-Metaverse.jpg"} />
       ))}
  </div>
-      <button onClick={getListedProjects} className="btn btn-primary">Get Listed Projects</button>
+      <button onClick={getListedProjects}>Get Listed Projects</button>
     </div>
   );
 }
