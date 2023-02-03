@@ -13,6 +13,7 @@ function Products() {
 
   useEffect(() => {
     getListedProjects()
+    
   },[])
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
@@ -23,6 +24,9 @@ function Products() {
   let dataArray = [];
 
   const getListedProjects = async () => {
+    const add = await signer.getAddress()
+    setUserAddress(add);
+
     setBtnVisible(false);
     const contractInstance = new ethers.Contract(
       contractAddress,
@@ -66,6 +70,7 @@ function Products() {
         `https://ipfs.io/ipfs/${testImgURL[1]}`,
         projects[0].toString(),
         projects[3].toString(),
+        projects[5].toString(),
       ]);
     }
 
@@ -88,6 +93,8 @@ function Products() {
           Img={details[3]}
           projectId={details[4]}
           projectVotes={details[5]}
+          _userAddress= {details[6]}
+          _user = {useAddress}
         />
         // <Cards Name = {details[0]} Desc = {details[1]} Date = {details[2]} Img = {"https://bafybeihngwk3dggkoqmxcjlpoqabmli6sofx6f2iv6hnd5y4s4hzn4xtje.ipfs.dweb.link/The-Web3-Project-Makes-A-Move-Into-The-Metaverse.jpg"} />
       ))}

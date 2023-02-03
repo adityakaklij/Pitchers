@@ -4,7 +4,8 @@ import { NFTStorage } from "nft.storage";
 import { contractABI, contractAddress } from "../Constants/Constants";
 import "../CSS/SubmitProject.css";
 import '../App.css'
-
+import * as PushAPI from "@pushprotocol/restapi";
+import { Chat } from "@pushprotocol/uiweb";
 function SubmitProject() {
   var uploadFile;
   const [metaDataURL, setMetaDataURl] = useState();
@@ -193,6 +194,7 @@ function SubmitProject() {
 
       <br />
       <br />
+     
     </div>
   );
 }

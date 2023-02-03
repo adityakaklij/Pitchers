@@ -51,8 +51,10 @@ function Cards({ Name, Desc, Date, Img, projectId, projectVotes, _user, _userAdd
     <div className="chatWindow">
       <Chat
         // account={account} //user address
+        // account= "0x88Ab2b62ccBD5170AA4D7266C0D5d7D002689fEf" //user address
         account= {_userAddress} //user address
         supportAddress={_user} //support address
+        // supportAddress=  "0x88Ab2b62ccBD5170AA4D7266C0D5d7D002689fEf" //support address
         apiKey="vzOQa8Hda3.lD6Yvrij1T4qHrE07Mp7XcE3mRWu8Yl6WAmOzLSfI63xWuGSoNkXsHeBDVvG63Hs"
         env="staging" 
       />
@@ -72,7 +74,10 @@ function Cards({ Name, Desc, Date, Img, projectId, projectVotes, _user, _userAdd
           <button onClick={()=>setChatBtn(true)} className=" btn-primary">
             Chat
           </button>
+
         </div>
+        
+        
       </div>
  
   </>);
