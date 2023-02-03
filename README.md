@@ -16,13 +16,24 @@ A decentralised secure, transparent, and democratic pitching platform for entrep
 4. Chat with project builders
 
 
-<br><br><br><br>
+<br><br><br>
+<hr>
+<img width="1200" alt="image" src="https://user-images.githubusercontent.com/90379168/216605357-395643cd-89ea-400f-bb0d-c3ccae4c21f1.png">
+<br>
+<br>
+
+<img width="1200" alt="image" src="https://user-images.githubusercontent.com/90379168/216605106-1acf8271-b6ee-4212-adfe-993176b829d3.png">
 
 <hr>
+<br>
 
-npm install <br>
-Install all the required dependencies
+<img width="1200" alt="image" src="https://user-images.githubusercontent.com/90379168/216605232-21ec621d-e1c1-4806-96c2-9ebce516a3f1.png">
+<br>
 
-npm run start <br>
-Runs the app in the development mode.
-Open http://localhost:3000 to view it in your browser.
+<br>
+<img width="1200" alt="image" src="https://user-images.githubusercontent.com/90379168/216605308-94dd52b3-d2d4-4654-89e2-0c17bb5d11a9.png">
+
+
+
+
+<hr>
