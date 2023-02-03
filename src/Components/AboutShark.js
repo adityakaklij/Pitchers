@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ethers } from 'ethers'
 import { contractABI, contractAddress } from '../Constants/Constants'
 import Cards from './Cards'
@@ -14,7 +14,12 @@ function AboutShark() {
     // Will containg all the available Sharks, fetched from SC
     let dataArray = [];
 
+    useEffect(() => {
+      getSharkDetails()
+    },[])
+
     const getSharkDetails = async() => {
+      console.log("Inside the fun")
         const contractInstance = new ethers.Contract(contractAddress, contractABI, provider);
         const totalSharks = await contractInstance.totalSharks();
 
