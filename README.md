@@ -45,7 +45,8 @@ A decentralised secure, transparent, and democratic pitching platform for entrep
 
 ## Live Pitch with Huddle01
 <br>
-![huddle](https://user-images.githubusercontent.com/90379168/216668665-9720cf26-8486-4892-aec0-ab71a8f94185.png)
+<img width="1200" alt="image" src="https://user-images.githubusercontent.com/90379168/216669950-c777ca34-41b3-4bf2-bea9-a581ed02591e.png">
+
 
 
 
