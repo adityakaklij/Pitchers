@@ -72,11 +72,15 @@ function Products() {
 
   return btnVisible?(
     <div>
+ 
       
       <button onClick={getListedProjects} className="btn btn-primary">Get Listed Projects</button>
     </div>
   ):(<>
   <div className="alignCards">
+ 
+ 
+      <div className="alignCards">
       {details.map((details) => (
         <Cards
           Name={details[0]}
