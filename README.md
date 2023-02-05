@@ -8,6 +8,7 @@
 **What the Project is about:-**
 A decentralised secure, transparent, and democratic pitching platform for entrepreneurs to showcase their business ideas to the world. Get attentaion from a global community of investors. 
 
+
 <br><br><br>
 **Features:-**
 1. Surfaces the best products in Web3.
@@ -15,6 +16,13 @@ A decentralised secure, transparent, and democratic pitching platform for entrep
 3. Pitch your business to industry experts(Sharks)
 4. Chat with project builders
 <hr>
+
+
+<br><br>
+
+## Deployed on Filecoin-Hyperspace testnet
+<br>
+
 
 <br><br><br>
 
