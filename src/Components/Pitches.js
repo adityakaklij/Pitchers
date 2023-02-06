@@ -29,7 +29,8 @@ function Pitches() {
   );
 
   const startMeet = async () => {
-    huddleClient.join("roomId");
+    // huddleClient.join("roomId");
+    huddleClient.join("0x88Ab689fEf");
     btnVisible ? setBtnVisible(false) : setBtnVisible(true);
   };
 
@@ -76,10 +77,11 @@ function Pitches() {
     <>
       <HuddleClientProvider client={huddleClient}>
         {/* <button onClick={startMeet}>Start</button> */}
-        <h1>Project Pitches</h1>
+        <h1 className="my-5"></h1>
         <button className="btn btn-primary" onClick={startMeet}>
-           
-          Pitch
+ 
+          Start Pitch
+ 
         </button>
       </HuddleClientProvider>
     </>
