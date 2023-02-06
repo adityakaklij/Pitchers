@@ -4,10 +4,13 @@ import { NFTStorage } from "nft.storage";
 import { contractABI, contractAddress } from "../Constants/Constants";
 import "../CSS/SubmitProject.css";
 import '../App.css'
-
+import * as PushAPI from "@pushprotocol/restapi";
+import { Chat } from "@pushprotocol/uiweb";
 function SubmitProject() {
   var uploadFile;
-  var MetaDataURL;
+ 
+  const [metaDataURL, setMetaDataURl] = useState();
+ 
 
   // For taking inputs
   var ProjectName; 
@@ -27,14 +30,19 @@ function SubmitProject() {
   const signer = provider.getSigner();
 
   const submitProjectFun = async() => {
+
     const contractInstance = new ethers.Contract(contractAddress, contractABI, signer);
     
-      await uploadDetailsToIPFS();
+ 
+     await uploadDetailsToIPFS();
+    // const submitProjectTx = await contractInstance.submitProject(metaDataURL, String(ProjectDate))
+    const submitProjectTx = await contractInstance.submitProject(metaDataURL, "1676529381")
+    // const submitProjectTx = await contractInstance.submitProject("ipfs://bafyreid6znnfuubpgma6kk4t2pke4ajr435kw2o45inrd3o2yzd4zfpumi/metadata.json", '16754170445464561')
+    // const submitProjectTx = await contractInstance.submitProject(metaDataURL, "1486612932" )
     
-    // const submitProjectTx = await contractInstance.submitProject(metaDataURL, "123")
-    console.log(MetaDataURL);
-    const submitProjectTx = await contractInstance.submitProject(MetaDataURL, ProjectDate.to )
-    
+    // const submitProjectTx = await contractInstance.submitProject("metaDataURL", 0)
+    console.log("here");
+ 
     await submitProjectTx.wait();
     window.alert("Project submitted successfully!");
   };
@@ -95,10 +103,11 @@ function SubmitProject() {
     ProjectName =  projectNameRef.current.value;
     ProjectDesc = descriptionRef.current.value;
     uploadFile = displayImageRef.current.files[0];
-    console.log(projectEndDateRef.current.value);
+ 
     const epochDate = Date.parse(projectEndDateRef.current.value);
-    ProjectDate = parseInt(epochDate);
-    console.log(ProjectDate);
+    ProjectDate = epochDate;
+
+ 
     await submitProjectFun();
   }
   // const handelProjectPrizePool = async (e) => {
@@ -172,6 +181,9 @@ function SubmitProject() {
           <button type="submit" href="/" onClick={handleSubmit}>
             Submit
           </button>
+          {/* <button  onClick={submitProjectFun}>
+          submitProjectFun
+          </button> */}
         </div>
       </form>
 
@@ -189,6 +201,7 @@ function SubmitProject() {
 
       <br />
       <br />
+     
     </div>
   );
 }

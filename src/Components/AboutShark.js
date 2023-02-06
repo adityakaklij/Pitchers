@@ -4,7 +4,9 @@ import { contractABI, contractAddress } from '../Constants/Constants'
 import Cards from './Cards'
 import SharkCards from './SharkCards';
 import '../App.css'
-import '../CSS/Products.css'
+ 
+import "../CSS/Products.css"
+ 
 
 function AboutShark() {
 
@@ -44,9 +46,15 @@ function AboutShark() {
             console.log("Image Url:- ", projectDesc["image"])
             
             
-            let testImgURL = (projectDesc["image"].toString()).split("//");
+            let testImgURL = (projectDesc["image"].toString()).split(":");
+            let testImgURL2 = (testImgURL.toString()).split("/");
+            // console.log("testImgURL2",testImgURL2)
+            let testImgURL3 = (testImgURL2[3]).trimStart()
+            // console.log("testImgURL3",testImgURL3)
+
+            // console.log("testImgURL",testImgURL)
             let sharkAddressIs = `${(projects[2].toString()).slice(0,3)}...${(projects[2].toString()).slice(-3)}`
-            dataArray.push([projectDesc["name"], projectDesc["description"],`https://ipfs.io/ipfs/${testImgURL[1]}`,sharkAddressIs])
+            dataArray.push([projectDesc["name"], projectDesc["description"],`https://ipfs.io/ipfs/${testImgURL2[2]}/${testImgURL3}`,sharkAddressIs])
       
           }
       
@@ -59,16 +67,19 @@ function AboutShark() {
 
 
   return (
-    <div>
+    <>
+      <div className="my-5 alignCards" >
+
         
-        <h1>About Sharks</h1>
-        <div className="alignCards"> 
+ 
+        {/* <h1>About Sharks</h1> */}
         {details.map(details => (
-            <SharkCards Name = {details[0]} Desc = {details[1]}  Img = {details[2]} Address = {details[3]} />
-        ))}
-        <button onClick={getSharkDetails} className="btn btn-primary">getSharkDetails</button>
-        </div>
-    </div>
+          <SharkCards Name = {details[0]} Desc = {details[1]}  Img = {details[2]} Address = {details[3]} />
+          ))}
+          </div>
+        {/* <button onClick={getSharkDetails} className="btn btn-primary">getSharkDetails</button> */}
+    </>
+ 
   )
 }
 

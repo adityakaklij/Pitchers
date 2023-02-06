@@ -29,8 +29,8 @@ function Pitches() {
   );
 
   const startMeet = async () => {
-    // huddleClient.join("roomId");
-    huddleClient.join("0x88Ab689fEf");
+    huddleClient.join("roomId");
+    // huddleClient.join("0x88Ab689fEf");
     btnVisible ? setBtnVisible(false) : setBtnVisible(true);
   };
 
@@ -46,17 +46,33 @@ function Pitches() {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
 
-  // const StartPitch = async() => {
-  //     const contractInstance = new ethers.Contract(contractAddress, contractABI, provider);
-  //     const address = await signer.getAddress()
+  const StartPitch = async() => {
+    
+      const contractInstance = new ethers.Contract(contractAddress, contractABI, provider);
+      const address = await signer.getAddress()
 
-  //     const getProjectId = await contractInstance.projectUserMap(address)
-  //     console.log("Ran");
-  //     const isEligibelForPitch = await contractInstance.isProjectEligibalForPitch(getProjectId.toString());
-  //     setPitchEligibility(isEligibelForPitch)
+      try {
+        const getProjectId = await contractInstance.projectUserMap(address)
+        console.log("Ran");
+        const isEligibelForPitch = await contractInstance.isProjectEligibalForPitch(getProjectId.toString());
+        setPitchEligibility(isEligibelForPitch)
+  
+        if(isEligibelForPitch) {
+  
+            startMeet()
+        }
+  
+        else{
+          window.alert("You are not eligible to Pitcj :(")
+        }
 
-  //     startMeet()
-  // }
+        
+      } catch (error) {
+            window.alert("You are not eligible!")
+            console.log(error)
+      }
+
+  }
 
   const toggleCam = () => {
     if(isCamOn){
@@ -78,7 +94,8 @@ function Pitches() {
       <HuddleClientProvider client={huddleClient}>
         {/* <button onClick={startMeet}>Start</button> */}
         <h1 className="my-5"></h1>
-        <button className="btn btn-primary" onClick={startMeet}>
+        {/* <button className="btn btn-primary" onClick={startMeet}> */}
+        <button className="btn btn-primary" onClick={StartPitch}>
  
           Start Pitch
  

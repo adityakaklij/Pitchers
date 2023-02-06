@@ -99,37 +99,7 @@ contract dSharkTank is Ownable {
 
     }
 
-    function startPitch() public {
-
-    }
  
-    //Done  // Create Projects
-    //          Name, Desc, Date for Pitch, Rating By Sharks
-    //Done  // Upvote the project
-    //Done    // Onboard As Shark (onlyOwner)
-        //      Name, desc, Experiance, PublicLikeing
-    // Vote Shark
-
-
-    //Done  // Only upvoted projects will be able to pitch on the every weekEnd
-
-    // Projects of the week
-    // Comment on project, upcomming feature.
-
-    // deleted projected will be assign project Id 0, and project Id 0 will not be calculated anywhere. 
-    // Also deleted project still be there in count of total project.
-
-
-/*
-    Create a project
-    apply for a pitch
-    pitch with the VCs
-
-    Explore the projects
-    Vote the projects
-
-    Attend the pitch
-    Vote the project by VCs
-
-*/ 
+ 
+  
 }
