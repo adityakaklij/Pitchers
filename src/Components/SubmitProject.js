@@ -8,7 +8,9 @@ import * as PushAPI from "@pushprotocol/restapi";
 import { Chat } from "@pushprotocol/uiweb";
 function SubmitProject() {
   var uploadFile;
+ 
   const [metaDataURL, setMetaDataURl] = useState();
+ 
 
   // For taking inputs
   var ProjectName; 
@@ -31,6 +33,7 @@ function SubmitProject() {
 
     const contractInstance = new ethers.Contract(contractAddress, contractABI, signer);
     
+ 
      await uploadDetailsToIPFS();
     // const submitProjectTx = await contractInstance.submitProject(metaDataURL, String(ProjectDate))
     const submitProjectTx = await contractInstance.submitProject(metaDataURL, "1676529381")
@@ -39,6 +42,7 @@ function SubmitProject() {
     
     // const submitProjectTx = await contractInstance.submitProject("metaDataURL", 0)
     console.log("here");
+ 
     await submitProjectTx.wait();
     window.alert("Project submitted successfully!");
   };
@@ -56,8 +60,9 @@ function SubmitProject() {
       });
 
       // setMetaDataURl(getIPFSGatewayURL(metaData.url));
-      setMetaDataURl(metaData.url);
-      console.log("metadata:- ", metaData);
+      MetaDataURL = metaData.url;
+      console.log(metaData.url);
+      console.log(metaData);
       return metaData;
     } catch (error) {
       alert(error);
@@ -98,9 +103,11 @@ function SubmitProject() {
     ProjectName =  projectNameRef.current.value;
     ProjectDesc = descriptionRef.current.value;
     uploadFile = displayImageRef.current.files[0];
+ 
     const epochDate = Date.parse(projectEndDateRef.current.value);
     ProjectDate = epochDate;
 
+ 
     await submitProjectFun();
   }
   // const handelProjectPrizePool = async (e) => {
