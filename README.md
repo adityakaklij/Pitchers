@@ -6,7 +6,7 @@
 **Project inspiration:–** To create a more secure, transparent, and democratic system that operates without relying on centralised intermediaries. Decentralised  projects aim to empower individuals and communities by giving them greater control over their data, assets, and online interactions, and reducing the risks associated with centralization, such as censorship, data breaches, and economic inefficiencies.
 <br> <br>
 **What the Project is about:-**
-A decentralised secure, transparent, and democratic pitching platform for entrepreneurs to showcase their business ideas to the world. Get attentaion from a global community of investors. 
+A decentralised secure, transparent, and democratic pitching platform for entrepreneurs to showcase their business ideas to the world. Get attention from a global community of investors. 
 
 
 <br><br><br>
